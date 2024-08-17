@@ -4,6 +4,7 @@ import {
   doc,
   getDocs,
   increment,
+  setDoc,
   updateDoc,
 } from "firebase/firestore";
 import { db, storage } from "./firebaseConfig";
@@ -63,6 +64,19 @@ export async function updateMuiscInfoCollectionListMusics(
     const docRef = doc(db, "muisces", id, "list", muisc_id);
     await updateDoc(docRef, {
       name: data.name,
+      UpdatedAt: new Date(),
+    });
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function CreateUser(name: string, email: string, user_id: string) {
+  try {
+    await setDoc(doc(db, "users", user_id), {
+      name: name,
+      email: email,
+      CreatedAt: new Date(),
       UpdatedAt: new Date(),
     });
   } catch (error) {

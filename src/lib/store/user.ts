@@ -1,5 +1,6 @@
 import { create } from "zustand";
-import { User } from "firebase/auth";
+import { onAuthStateChanged, User } from "firebase/auth";
+import { auth } from "../firebase/firebaseConfig";
 interface UserState {
   user: User | null;
   setUser: (user: User | null) => void;
@@ -9,3 +10,4 @@ const useUser = create<UserState>((set) => ({
   setUser: (user: User | null) => set({ user }),
 }));
 export default useUser;
+

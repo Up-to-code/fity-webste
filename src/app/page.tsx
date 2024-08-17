@@ -6,6 +6,7 @@ import { SonnerDemo } from "@/components/common/Tost";
 export default function Home() {
   return (
     <div>
+    
       <TimerChart />
       <Controles  />
       <DrawerDemo />
