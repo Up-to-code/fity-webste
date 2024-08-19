@@ -9,9 +9,35 @@ import FireWel from "@/components/fireWeel";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "",
-  description: " ",
+  title: "Fity Website",
+  description: "Description of the Fity Website",
+  icons: {
+    icon: "/favicon.ico",
+  },
+  themeColor: "#ffffff",
+  viewport: "width=device-width, initial-scale=1",
+  appleWebApp: {
+    title: "Fity Website",
+    capable: true,
+    statusBarStyle: "default",
+  },
+  openGraph: {
+    title: "Fity Website",
+    description: "Description of the Fity Website",
+    url: "/logo.png",
+    type: "website",
+    siteName: "Fity Website",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1920,
+        height: 1080,
+        alt: "Fity Logo",
+      },
+    ],
+  },
 };
+
 
 export default function RootLayout({
   children,
