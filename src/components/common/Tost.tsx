@@ -6,7 +6,7 @@ import { SignOut } from "@/lib/firebase/AuthFuncs";
 export function SonnerDemo() {
   return (
     <>
-      <Button onClick={() => SignOut()}>SignOut</Button>
+      <Button onClick={() => SignOut()} className="text-foreground">SignOut</Button>
     </>
   );
 }

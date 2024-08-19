@@ -10,19 +10,19 @@ import { getCollectionList } from "@/lib/firebase/FirebaseServes";
 import { AiFillSound } from "react-icons/ai";
 
 function Player() {
-  const { 
-    isPlay, 
-    play, 
-    next, 
-    back, 
-    togglePlay, 
-    playList, 
+  const {
+    isPlay,
+    play,
+    next,
+    back,
+    togglePlay,
+    playList,
     setPlayList,
-    currentTime, 
-    duration, 
-    volume, 
-    setVolume, 
-    setCurrentTime 
+    currentTime,
+    duration,
+    volume,
+    setVolume,
+    setCurrentTime,
   } = usePlayer((state) => ({
     isPlay: state.isPlay,
     play: state.play,
@@ -35,7 +35,7 @@ function Player() {
     duration: state.duration,
     volume: state.volume,
     setVolume: state.setVolume,
-    setCurrentTime: state.setCurrentTime
+    setCurrentTime: state.setCurrentTime,
   }));
 
   const [dataFetched, setDataFetched] = useState(false);
@@ -57,22 +57,28 @@ function Player() {
     }
   }, [dataFetched, playList.length, setPlayList]);
 
-  const handleVolumeChange = useCallback((value: number[]) => {
-    const newVolume = value[0] / 100;
-    setVolume(newVolume);
-  }, [setVolume]);
+  const handleVolumeChange = useCallback(
+    (value: number[]) => {
+      const newVolume = value[0] / 100;
+      setVolume(newVolume);
+    },
+    [setVolume]
+  );
 
-  const handleTimeChange = useCallback((value: number[]) => {
-    const newTime = value[0];
-    setCurrentTime(newTime);
-  }, [setCurrentTime]);
+  const handleTimeChange = useCallback(
+    (value: number[]) => {
+      const newTime = value[0];
+      setCurrentTime(newTime);
+    },
+    [setCurrentTime]
+  );
 
   return (
-    <Card className="absolute bottom-0 w-full py-2">
+    <Card className="fixed bottom-0 w-full py-2">
       <CardHeader>
-        <div className="text-center mb-2">
+        {/* <div className="text-center mb-2">
           <h3 className="text-lg font-semibold">{playList[0]?.title || "Track Title"}</h3>
-        </div>
+        </div> */}
         <div className="flex justify-center items-center">
           <div className="mr-2 cursor-pointer" onClick={back}>
             <GiPreviousButton size={30} />
@@ -89,7 +95,7 @@ function Player() {
         </div>
       </CardHeader>
 
-      <div className="flex flex-col items-center mb-2 px-4">
+      <div className="flex flex-col items-center mb-2 px-4 ">
         <Slider
           value={[currentTime]}
           onValueChange={handleTimeChange}
@@ -103,8 +109,8 @@ function Player() {
         </div>
       </div>
 
-      <div className="flex justify-center items-center mb-2 px-4 gap-5">
-        <AiFillSound size={30}  className="text-primary mx-2"/>
+      <div className="flex justify-center items-center mb-2 px-4 gap-5 max-w-xl m-auto">
+        <AiFillSound size={30} className="text-primary mx-2" />
         <Slider
           value={[volume * 100]} // Convert volume from 0-1 to 0-100
           onValueChange={handleVolumeChange}

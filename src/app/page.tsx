@@ -1,18 +1,21 @@
 import Controles from "@/components/Base/Controles";
 import { DrawerDemo } from "@/components/Base/Drawer";
+import TimerInfo from "@/components/Base/TimerInfo";
 import Player from "@/components/Base/Player";
 import { TimerChart } from "@/components/Base/Timer";
-import { SonnerDemo } from "@/components/common/Tost";
 
 export default function Home() {
   return (
-    <div>
+    <>
+    <div className="h-screen">
     
       <TimerChart />
       <Controles  />
-      <DrawerDemo />
-      <SonnerDemo />
+      {/* <DrawerDemo /> */}
+     
       <Player />
     </div>
+    <TimerInfo />
+    </>
   );
 }

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Card } from "../ui/card";
 import useUser from "@/lib/store/user";
 import Image from "next/image";
+import { SonnerDemo } from "../common/Tost";
 
 function NavBar() {
   const [isMounted, setIsMounted] = useState(false);
@@ -22,6 +23,7 @@ function NavBar() {
         <nav className="flex gap-4 items-center">
           {user ? (
             <>
+             <SonnerDemo />
               <p>{user.displayName}</p>
                {
                 user.photoURL ? (
